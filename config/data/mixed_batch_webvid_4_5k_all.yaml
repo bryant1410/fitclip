@@ -1,0 +1,15 @@
+defaults:
+  - .@data_modules.labeled: webvid4_5k
+  - .@data_modules.unlabeled: webvid
+  - _self_
+
+_target_: aligner.data.data_module_group.MixedBatchDataModule
+data_modules:
+  # These batch sizes are going to be used only for evaluation. The training ones are the "sequence sizes" below.
+  labeled:
+    batch_size: 8
+  unlabeled:
+    batch_size: 8
+train_sequence_sizes:
+  labeled: 8
+  unlabeled: 8

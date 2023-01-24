@@ -1,0 +1,6 @@
+defaults:
+  - .@train_data_module: null
+  - .@eval_data_module: drift_eval
+  - _self_
+
+_target_: aligner.data.data_module_group.TrainAndEvalDataModules

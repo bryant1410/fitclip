@@ -1,0 +1,6 @@
+defaults:
+  - webvid
+  - _self_
+
+train_video_info_file_path: /datasets/webvid/results_2M_train_36k.csv
+train_filter_videos_from_info_file: true

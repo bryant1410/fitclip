@@ -1,0 +1,36 @@
+defaults:
+  - trainer
+  - override data: drift_eval_train
+  - _self_
+
+optimized_metric_name: r10_cc3m
+model:
+  dataset_names:
+    - cc3m
+    - msrvtt
+    - webvid
+trainer:
+  max_epochs: 1
+  benchmark: true
+  deterministic: false
+  devices: -1
+  enable_checkpointing: false
+  val_check_interval: 10
+  logger:
+    - _target_: pytorch_lightning.loggers.TensorBoardLogger
+      save_dir: .
+      name:
+      version: ""
+      default_hp_metric: false
+    - _target_: pytorch_lightning.loggers.NeptuneLogger
+      project: bryant1410/fit-clip
+      prefix: ""
+  callbacks:
+    - _target_: pytorch_lightning.callbacks.early_stopping.EarlyStopping
+      monitor: ${optimized_metric_name}
+      mode: max
+      min_delta: 0.1
+      patience: 10
+      verbose: true
+    - _target_: pytorch_lightning.callbacks.RichProgressBar
+validate_before_training: true

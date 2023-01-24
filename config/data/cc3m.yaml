@@ -1,0 +1,5 @@
+_target_: aligner.data.conceptual_captions.ConceptualCaptionsDataModule
+train_video_info_file_path: /datasets/cc3m/annotation_files/gcc3m_train_merge.csv
+train_videos_folder: /datasets/cc3m/train/
+val_video_info_file_path: /datasets/cc3m/annotation_files/gcc3m_val_merge.csv
+val_videos_folder: /datasets/cc3m/val/

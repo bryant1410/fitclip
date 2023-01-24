@@ -1,0 +1,43 @@
+defaults:
+  - trainer/callbacks: default
+  - encoder: null
+  - data: null
+  - data@data.train_data_module: null
+  - hparam_search: null
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+  - _self_
+
+hydra:
+  sweep:
+    dir: ${oc.env:SWEEP_DIR}
+
+command: ???
+encoder: ???
+model:
+  _target_: aligner.text_video_retrieval.TextVideoRetrievalLightningModule
+  init_temperature: 0.015
+  fit_temperature: false
+data: ???
+optimizer:
+  _target_: torch.optim.AdamW
+  lr: 3e-6
+lr:  # So the hparams has this field and thus can be used by auto LR find.
+trainer:
+  _target_: pytorch_lightning.Trainer
+  max_epochs: -1
+  deterministic: true
+  accelerator: auto
+  devices: 1  # For evaluation, it's recommended to just use one device to avoid batch padding.
+  logger:  # Need to use a list, so it can be overridden by Hydra if adding more loggers.
+    - _target_: pytorch_lightning.loggers.TensorBoardLogger
+      save_dir: .
+      name:
+      version: ""
+  log_every_n_steps: 2
+  num_sanity_val_steps: 4  # To make sure there's more than max top_k (10, used by R@10), otherwise it fails.
+  gradient_clip_val: null
+checkpoint_path:
+seed: 42
+silent: false
+validate_before_training: false

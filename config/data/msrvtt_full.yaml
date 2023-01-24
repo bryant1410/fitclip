@@ -1,0 +1,6 @@
+defaults:
+  - msrvtt
+  - _self_
+
+train_file_list_rel_path: train_list_full.txt
+val_file_list_rel_path: val_list_full.txt

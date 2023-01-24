@@ -1,0 +1,44 @@
+# @package _global_
+defaults:
+  - override /hydra/sweeper: optuna
+  # The sampler is needed here because otherwise it'd be merged with the default sampler and its args,
+  # and then the current sampler would receive extra args and fail. Note this is because dicts are merged instead of
+  # assigned.
+  - override /hydra/sweeper/sampler: random
+  - _self_
+
+hydra:
+  sweeper:
+    _target_: hydra_plugins.hydra_optuna_sweeper.optuna_sweeper.OptunaSweeper
+    storage: null
+    study_name: null
+    n_jobs: 1
+    direction: maximize
+    n_trials: 100
+    sampler:
+      seed: ${seed}
+    search_space:
+#      +data.train_data_module.batch_size:
+#        type: int
+#        low: 1
+#        high: 32
+#      optimizer.lr:
+#        type: float
+#        log: true
+#        low: 2e-7
+#        high: 1e-5
+#      model.init_temperature:
+#        type: float
+#        log: true
+#        low: 0.001
+#        high: 0.02
+#      model.fit_temperature:
+#        type: categorical
+#        choices:
+#          - true
+#          - false
+      trainer.gradient_clip_val:
+        type: float
+        log: true
+        low: 1e-3
+        high: 100

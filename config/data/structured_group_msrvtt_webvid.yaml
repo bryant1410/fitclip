@@ -1,0 +1,11 @@
+defaults:
+  - .@data_modules.labeled: msrvtt
+  - .@data_modules.unlabeled: webvid
+  - _self_
+
+_target_: aligner.data.data_module_group.DataModuleStructuredGroup
+data_modules:
+  labeled:
+    batch_size: 8
+  unlabeled:
+    batch_size: 8

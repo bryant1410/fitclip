@@ -1,0 +1,19 @@
+- _target_: pytorch_lightning.callbacks.early_stopping.EarlyStopping
+  monitor: loss/val
+  patience: 10
+  verbose: true
+- _target_: pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint
+  monitor: loss/val
+  filename: best
+  verbose: true
+- _target_: pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint
+  save_on_train_epoch_end: true
+  every_n_epochs: 5
+  save_top_k: -1
+  verbose: true
+- _target_: pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint
+  train_time_interval:
+    _target_: datetime.timedelta
+    hours: 1
+  verbose: true
+- _target_: pytorch_lightning.callbacks.RichProgressBar

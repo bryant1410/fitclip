@@ -1,0 +1,7 @@
+defaults:
+  - .@data_modules.cc3m: cc3m
+  - .@data_modules.msrvtt: msrvtt
+  - .@data_modules.webvid: webvid
+  - _self_
+
+_target_: aligner.data.data_module_group.EvalDataModuleGroup

@@ -1,0 +1,5 @@
+_target_: aligner.data.hmdb.HmdbDataModule
+categories_file_path: /datasets/hmdb51/classes.txt
+splits_folder: https://serre-lab.clps.brown.edu/wp-content/uploads/2013/10/test_train_splits.rar!testTrainMulti_7030_splits/
+split: 1
+videos_folder: /datasets/hmdb51/videos/

@@ -1,0 +1,8 @@
+_target_: aligner.data.kinetics.KineticsDataModule
+categories_file_path: /datasets/kinetics-400/categories.txt
+train_video_info_file_path: /datasets/kinetics-400/k400/train.csv
+train_videos_folder: /datasets/kinetics-400/k400/train/
+val_video_info_file_path: /datasets/kinetics-400/k400/val.csv
+val_videos_folder: /datasets/kinetics-400/k400/val/
+test_video_info_file_path: /datasets/kinetics-400/k400/test.csv
+test_videos_folder: /datasets/kinetics-400/k400/test/
