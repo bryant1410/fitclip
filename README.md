@@ -12,7 +12,7 @@ conda env create
 conda activate sm
 ```
 
-### Download datasets and models
+### Download the datasets and models
 
 To use many of the datasets we used here, you need to download them. Go to their official website to find how to
 download each of them. Check out the config files under `config/data` to find out what paths you need to set up for
