@@ -1,0 +1,6 @@
+defaults:
+  - frozen_in_time
+  - _self_
+
+model:
+  load_checkpoint: https://www.robots.ox.ac.uk/~maxbain/frozen-in-time/models/cc-webvid-2m-coco_stformer_b_16_224.pth.tar

@@ -1,0 +1,2 @@
+_target_: aligner.encoder.mil_nce_video_text_encoder.MilNceVideoTextEncoder
+pretrained_path: https://www.rocq.inria.fr/cluster-willow/amiech/howto100m/s3d_howto100m.pth

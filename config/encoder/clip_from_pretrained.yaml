@@ -1,0 +1,7 @@
+defaults:
+  - clip
+  - _self_
+
+model:
+  _target_: aligner.encoder.clip_video_text_encoder.load_clip_model
+  name: ???

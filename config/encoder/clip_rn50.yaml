@@ -1,0 +1,6 @@
+defaults:
+  - clip_from_pretrained
+  - _self_
+
+model:
+  name: RN50

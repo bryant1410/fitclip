@@ -1,0 +1,6 @@
+defaults:
+  - slip_from_pretrained
+  - _self_
+
+model:
+  path: https://dl.fbaipublicfiles.com/slip/slip_base_100ep.pt

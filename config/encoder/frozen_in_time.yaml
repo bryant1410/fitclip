@@ -1,0 +1,13 @@
+_target_: aligner.encoder.frozen_in_time_video_text_encoder.FrozenInTimeVideoTextEncoder
+model:
+  _target_: aligner.encoder.frozen_in_time.FrozenInTime
+  video_params:
+    model: SpaceTimeTransformer
+    arch_config: base_patch16_224
+    num_frames: 4
+    pretrained: true
+    time_init: zeros
+  text_params:
+    model: distilbert-base-uncased
+    pretrained: true
+    input: text

@@ -1,0 +1,7 @@
+defaults:
+  - slip
+  - _self_
+
+model:
+  _target_: aligner.encoder.slip_video_text_encoder.load_model
+  path: ???

@@ -1,0 +1,47 @@
+name: sm
+variables:
+  PYTHONPATH: .
+dependencies:
+  - pip:
+    - git+https://github.com/bryant1410/cached_path@10d733d
+    - git+https://github.com/openai/CLIP@b46f5ac
+    -            decord==0.6.*
+    -            flask==2.*
+    -            flask-cors==3.*
+    -            google-cloud-speech==2.*
+    -            hydra_colorlog==1.1.*
+    -            hydra-optuna-sweeper==1.1.*
+    -            matplotlib==3.*
+    -            overrides==6.*
+    -            pillow==8.*
+    -            pytest
+    -            seaborn==0.11.*
+    -            transformers==4.*
+  - conda-forge::awscli=1
+  - conda-forge::accimage
+  -              csvkit=1
+  - conda-forge::cudatoolkit=11.5
+  - conda-forge::cupy=9  # For spaCy
+  - conda-forge::einops
+  - conda-forge::ffmpeg
+  -              gunicorn=20.1
+  - conda-forge::hydra-core=1.1
+  -              jq=1.6
+  -              jupyter
+  - conda-forge::neptune-client=0.14
+  - conda-forge::nltk=3
+  -              pandas=1
+  -              pip=21
+  -              python=3.8
+  -     pytorch::pytorch=1.11*=*cuda*
+  - conda-forge::pytorch-lightning=1.6
+  - conda-forge::rarfile  # For UCF.
+  - conda-forge::rich  # For fancy output.
+  - conda-forge::spacy=3
+  - conda-forge::tensorboard
+  -              tensorflow  # For more capabilities in TensorBoard.
+  - conda-forge::timm
+  - conda-forge::torchmetrics=0.9
+  -     pytorch::torchvision
+  -              tqdm
+  - conda-forge::youtube-dl=2021.6.6

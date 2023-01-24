@@ -1,0 +1,6 @@
+defaults:
+  - clip_from_pretrained
+  - _self_
+
+model:
+  name: /datasets/castrose/openclip_rn50_8gpu_lr5e-4_yfcc_epoch32_state_dict.pt

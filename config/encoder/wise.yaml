@@ -1,0 +1,9 @@
+defaults:
+  - model1: null
+  - model2: null
+  - _self_
+
+_target_: aligner.wise.wise
+model1: ???
+model2: ???
+weight_for_2: 0.4
