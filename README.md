@@ -33,6 +33,27 @@ python -m aligner command=evaluate encoder=$MODEL data=$DATASET
 
 Checkout the options with `--help` and the available configs under `config/`. Next are some example runs.
 
+### Evaluate our main model
+
+We provide [a student model](https://github.com/bryant1410/fitclip/releases/download/publish/distill_clip_webvid_4_5k_webvid_fit_64_64_fix_temp_lab_loss_09999_best_lab_val_loss_only_student.pt)
+created with our method. To correctlly use it, step 2 from our method needs to be applied (weight-space ensembling between the student checkpoint and the original CLIP checkpoint).
+By running this command, step 2 is applied on the fly and evaluated on multiple benchmarks:
+
+```bash
+student=https://github.com/bryant1410/fitclip/releases/download/publish/distill_clip_webvid_4_5k_webvid_fit_64_64_fix_temp_lab_loss_09999_best_lab_val_loss_only_student.pt
+aligner \
+  --multirun \
+  command=evaluate \
+  encoder=wise \
+    +encoder@encoder.model1=clip_vit_b_16 \
+    +encoder@encoder.model2=clip_from_pretrained \
+      +encoder.model2.model.name="$student" \
+  data=didemo,moments_in_time,msrvtt,ucf101,webvid,youcook2 \
+  silent=true
+```
+
+The checkpoint is going to be automatically download the first time is used and cached for future use. If this doesn't work, you can still download it yourself and pass a local path instead.
+
 ### CLIP on WebVid val
 
 Run like:
